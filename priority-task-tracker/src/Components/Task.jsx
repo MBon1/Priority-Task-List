@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Task({title='TASK NAME', dueDate='00/00/0000', dueDateFont='text-gray-400', description}) {
+function Task({title='TASK NAME', dueDate='0000-00-00', dueDateFont='text-gray-400', description}) {
   return (
     <div className='p-2 border-2 border-black bg-white rounded-lg shadow-md m-4 relative'>
         <div>
