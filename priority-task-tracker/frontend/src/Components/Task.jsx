@@ -21,7 +21,7 @@ function Task({title='TASK NAME', dueDate='00/00/0000', dueDateFont='text-gray-4
             <div className='pt-1.5 text-base'>{desc}</div>
             {description.length > maxCharacterCount && <button onClick={() => setShowDescription((prevState) => !prevState)} className='text-indigo-500 hover:text-indigo-600'>{showDescription ? 'Less' : 'More'}</button>}
             
-            <div className='h-8'>
+            <div className='h-8 m-1'>
                 <Link
                     to={`/edit-task/${id}`}
                     className="bg-green-200 hover:bg-green-300 text-black px-4 py-2 absolute bottom-2 right-2 rounded-lg text-center text-sm"
