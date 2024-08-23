@@ -92,7 +92,7 @@ function EditTaskPage({deleteTask, updateTaskSubmit}) {
 
                 <div className='flex justify-center pt-4 mb-4'>
                     <div className='w-1/2 flex justify-center'>
-                        <button className='bg-green-200 hover:bg-green-300 text-black font-bold py-2 rounded-md w-4/5 focus:outline-none focus:shadow-outline' type='submit'>Submit Changes to Task</button>
+                        <button className='bg-green-200 hover:bg-green-300 text-black font-bold py-2 rounded-md w-4/5 focus:outline-none focus:shadow-outline' type='submit'>Update Task</button>
                     </div>
                     <div className='w-1/2 flex justify-center'>
                         <button className='bg-green-200 hover:bg-green-300 text-black font-bold py-2 rounded-md w-4/5 focus:outline-none focus:shadow-outline' type='button' onClick={(e) => deleteTaskFunc(e.target.value)}>Delete Task</button>
