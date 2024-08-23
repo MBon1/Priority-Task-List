@@ -14,7 +14,7 @@ function Navbar() {
                                     <NavLink to='/' className={linkClass}>
                                         Active Tasks
                                     </NavLink>
-                                    <NavLink to='/edit-tasks' className={linkClass}>
+                                    <NavLink to='/add-task' className={linkClass}>
                                         Add Task
                                     </NavLink>
                                     <NavLink to='/completed-tasks' className={linkClass}>

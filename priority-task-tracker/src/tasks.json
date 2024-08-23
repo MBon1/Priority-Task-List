@@ -4,27 +4,39 @@
         "priority": "1",
         "title": "Submit Website",
         "dueDate": "2024-08-23",
-        "description": "Submit the finished website for the Roulettech exam. Dependant on task \"Create Website\". Random other text."
+        "description": "Submit the finished website for the Roulettech exam. Dependant on task \"Create Website\". Random other text.",
+        "active": true
     }, 
     {
         "id": 2,
         "priority": "1",
         "title": "Create Website",
         "dueDate": "2024-08-22",
-        "description": "Create a website to be used for the Roulettech exam."
+        "description": "Create a website to be used for the Roulettech exam.",
+        "active": true
     },
     {
         "id": 3,
         "priority": "2",
         "title": "Cook Dinner",
         "dueDate": "2024-08-28",
-        "description": "Cook dinner for the week."
+        "description": "Cook dinner for the week.",
+        "active": true
     }, 
     {
         "id": 4,
         "priority": "3",
         "title": "Clean Office",
         "dueDate": "2024-09-30",
-        "description": "Straighten up office. Get new shelves and storange bins for paper files."
+        "description": "Straighten up office. Get new shelves and storange bins for paper files.",
+        "active": true
+    },
+    {
+        "id": 5,
+        "priority": "1",
+        "title": "Answer Behavioral Questions",
+        "dueDate": "2024-08-21",
+        "description": "Answer the two questions for the behavioral portion of the take home exam.",
+        "active": false
     }
 ]
