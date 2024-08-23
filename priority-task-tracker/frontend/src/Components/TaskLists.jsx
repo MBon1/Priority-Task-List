@@ -1,13 +1,38 @@
 import React from 'react'
+import { useState, useEffect } from 'react';
 import PageTitle from './pageTitle';
 import TaskList from './TaskList'
-import tasks from '../tasks.json'
+
+function FormatDateString(date)
+{
+    return date.toISOString().split('T')[0];
+}
 
 function TaskLists({listCount=3, showActiveTasks=true}) {
     const today = new Date();
-    const todayYMD =  today.toISOString().split('T')[0];
+    const todayYMD =  FormatDateString(today);
     const deadline = new Date(today.setDate(today.getDate() + 7));
-    const deadlineYMD = deadline.toISOString().split('T')[0];
+    const deadlineYMD = FormatDateString(deadline);
+
+
+    const [tasks, setTasks] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchTasks = async() => {
+            try {
+                //const res = await fetch('http://localhost:8000/api/tasks/');
+                const res = await fetch('api/tasks');
+                const data = await res.json();
+                setTasks(data);
+            } catch (error) {
+                console.log('Error fetching data', error);
+            } finally {
+                setLoading(false);
+            }
+        }
+        fetchTasks();
+    }, []);
 
     tasks.sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate));
 
