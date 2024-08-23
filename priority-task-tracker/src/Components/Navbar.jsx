@@ -9,13 +9,13 @@ function Navbar() {
                     <div className="flex flex-1 items-center justify-center md:items-stretch md:justify-start">
                         <div className="md:ml-auto">
                             <div className="flex space-x-2">
-                                <a href="/index.html" className="text-black bg-green-300 hover:bg-green-300 hover:text-black rounded-md px-3 py-2">
-                                    Current Tasks
+                                <a href="/" className="text-black bg-green-300 hover:bg-green-300 hover:text-black rounded-md px-3 py-2">
+                                    Active Tasks
                                 </a>
-                                <a href="/edit-tasks.html" className="text-black hover:bg-green-300 hover:text-black rounded-md px-3 py-2">
+                                <a href="/edit-tasks" className="text-black hover:bg-green-300 hover:text-black rounded-md px-3 py-2">
                                     Add Task
                                 </a>
-                                <a href="/completed-tasks.html" className="text-black hover:bg-green-300 hover:text-black rounded-md px-3 py-2">
+                                <a href="/completed-tasks" className="text-black hover:bg-green-300 hover:text-black rounded-md px-3 py-2">
                                     View Completed Tasks
                                 </a>
                             </div>
