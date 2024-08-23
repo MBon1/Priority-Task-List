@@ -6,18 +6,34 @@ import AddTaskPage from './pages/AddTaskPage';
 import CompletedTasksPage from './pages/CompletedTasksPage';
 import NotFoundPage from './pages/NotFoundPage';
 
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path='/' element={<MainLayout></MainLayout>}>
-      <Route index element={<HomePage></HomePage>}></Route>
-      <Route path='/add-task' element={<AddTaskPage></AddTaskPage>}></Route>
-      <Route path='/completed-tasks' element={<CompletedTasksPage></CompletedTasksPage>}></Route>
-      <Route path='*' element={<NotFoundPage></NotFoundPage>}></Route>
-    </Route>
-  )
-);
-
 function App() {
+  const addTask = async(newTask) => {
+    const res = await fetch('http://localhost:8000/api/tasks/', { //api/tasks
+      method: 'POST',
+      body: JSON.stringify(newTask),
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
+    })
+    .then(response => response.json())
+    .then(data=>{
+        console.log(data);
+    });
+    return;
+  };
+  
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path='/' element={<MainLayout></MainLayout>}>
+        <Route index element={<HomePage></HomePage>}></Route>
+        <Route path='/add-task' element={<AddTaskPage addTaskSubmit={addTask}></AddTaskPage>}></Route>
+        <Route path='/completed-tasks' element={<CompletedTasksPage></CompletedTasksPage>}></Route>
+        <Route path='*' element={<NotFoundPage></NotFoundPage>}></Route>
+      </Route>
+    )
+  );
+
   return (
     <RouterProvider router={router}></RouterProvider>
   )

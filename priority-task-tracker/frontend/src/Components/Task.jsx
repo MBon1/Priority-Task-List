@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 
-function Task({title='TASK NAME', dueDate='0000-00-00', dueDateFont='text-gray-400', description}) {
+function Task({title='TASK NAME', dueDate='00/00/0000', dueDateFont='text-gray-400', description}) {
     const[showDescription, setShowDescription] = useState(false);
 
     let desc = description;

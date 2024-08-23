@@ -13,7 +13,7 @@ class Task(models.Model):
     )
     title = models.CharField(max_length=60)
     dueDate = models.DateTimeField()
-    description = models.TextField()
+    description = models.TextField(default=None, blank=True, null=True)
     active = models.BooleanField(default=True)
 
     def _str_(self):
