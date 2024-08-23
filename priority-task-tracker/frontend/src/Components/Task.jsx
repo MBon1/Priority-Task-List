@@ -1,7 +1,8 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import { useState } from 'react'
 
-function Task({title='TASK NAME', dueDate='00/00/0000', dueDateFont='text-gray-400', description}) {
+function Task({title='TASK NAME', dueDate='00/00/0000', dueDateFont='text-gray-400', description, id}) {
     const[showDescription, setShowDescription] = useState(false);
 
     let desc = description;
@@ -19,6 +20,15 @@ function Task({title='TASK NAME', dueDate='00/00/0000', dueDateFont='text-gray-4
             </div>
             <div className='pt-1.5 text-base'>{desc}</div>
             {description.length > maxCharacterCount && <button onClick={() => setShowDescription((prevState) => !prevState)} className='text-indigo-500 hover:text-indigo-600'>{showDescription ? 'Less' : 'More'}</button>}
+            
+            <div className='h-8'>
+                <Link
+                    to={`/edit-task/${id}`}
+                    className="bg-green-200 hover:bg-green-300 text-black px-4 py-2 absolute bottom-2 right-2 rounded-lg text-center text-sm"
+                >
+                Edit Task
+                </Link>
+            </div>
         </div>
     )
 }

@@ -29,7 +29,7 @@ function TaskList({header='TASKS', bg='bg-red-400', tasks=[], today='0000-00-00'
         <section>
             {tasks.map((task) => (
                 <Task key={task.id} title={task.title} dueDate={FormatDueDate(task.dueDate)} 
-                    dueDateFont={GetDueDateFont(task.dueDate.split('T')[0], today, deadline, inActiveTasksList)} description={task.description}></Task>
+                    dueDateFont={GetDueDateFont(task.dueDate.split('T')[0], today, deadline, inActiveTasksList)} description={task.description} id={task.id}></Task>
             ))}
         </section>
     </section>
