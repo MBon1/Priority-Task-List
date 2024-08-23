@@ -4,7 +4,7 @@
         "priority": "1",
         "title": "Submit Website",
         "dueDate": "2024-08-23",
-        "description": "Submit the finished website for the Roulettech exam. Dependant on task \"Create Website\"."
+        "description": "Submit the finished website for the Roulettech exam. Dependant on task \"Create Website\". Random other text."
     }, 
     {
         "id": 2,
@@ -18,7 +18,7 @@
         "priority": "2",
         "title": "Cook Dinner",
         "dueDate": "2024-08-28",
-        "description": "Cook dinner for week."
+        "description": "Cook dinner for the week."
     }, 
     {
         "id": 4,
