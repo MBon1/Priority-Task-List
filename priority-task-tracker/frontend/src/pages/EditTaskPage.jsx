@@ -4,16 +4,18 @@ import { useState } from 'react';
 //import TaskForm from '../Components/TaskForm';
 import PageTitle from '../Components/pageTitle';
 
-function EditTaskPage({deleteTask}) {
-        const task = useLoaderData()
-        
-        const [priority, setPriority] = useState(task.priority);
-        const [title, setTitle] = useState(task.title);
-        const [rawDueDate, setRawDueDate] = useState(task.dueDate.substring(0,10));
-        const [description, setDescription] = useState(task.description);
-        const [active, setActive] = useState(!task.active);
+function EditTaskPage({deleteTask, updateTaskSubmit}) {
+    const {id} = useParams();
 
-        const navigate = useNavigate();
+    const task = useLoaderData()
+
+    const [priority, setPriority] = useState(task.priority);
+    const [title, setTitle] = useState(task.title);
+    const [rawDueDate, setRawDueDate] = useState(task.dueDate.substring(0,10));
+    const [description, setDescription] = useState(task.description);
+    const [completed, setCompleted] = useState(!task.active);
+
+    const navigate = useNavigate();
 
     const deleteTaskFunc = (e) => {
 
@@ -22,24 +24,24 @@ function EditTaskPage({deleteTask}) {
         return navigate('/');
     };
 
-    const submitFormEdits = (e) => {
-        console.log('edited');
-        // e.preventDefault();
+    const submitForm = (e) => {
+        e.preventDefault();
 
-        // const dueDate = new Date(rawDueDate).toISOString();
+        const dueDate = new Date(rawDueDate).toISOString();
+        const active = !completed;
 
-        // const task = {
-        // priority,
-        // title,
-        // dueDate,
-        // description,
-        // active
-        // };
-        // console.log(task);
+        const updatedTask = {
+            id,
+            priority,
+            title,
+            dueDate,
+            description,
+            active
+        };
 
-        // addTaskSubmit(task);
+        updateTaskSubmit(updatedTask);
 
-        // return navigate('/');
+        return navigate(active ? '/' : '/completed-tasks');
     };
     
     const inputStyle = 'm-2';
@@ -53,7 +55,7 @@ function EditTaskPage({deleteTask}) {
             <PageTitle title={'Edit Task'}></PageTitle>
             <section className='flex justify-center'>
             <div className='p-2 border-2 border-black bg-white rounded-lg shadow-md m-4 w-11/12 relative'>
-                <form onSubmit={submitFormEdits}>
+                <form onSubmit={submitForm}>
                 {/* Title */}
                 <div className={inputStyle}>
                     <label htmlFor='title' className='font-bold'>Title</label>
@@ -84,8 +86,8 @@ function EditTaskPage({deleteTask}) {
 
                 {/* Active Task Status */}
                 <div className={inputStyle}>
-                    <label htmlFor='active' className='font-bold'>Is this Task Completed</label>
-                    <input type='checkbox' id='active' className='border rounded ml-3 py-2 px-3 mb-2' checked={active} onChange={(e) => setActive(e.target.checked)}></input>
+                    <label htmlFor='completed' className='font-bold'>Is this Task Completed</label>
+                    <input type='checkbox' id='completed' className='border rounded ml-3 py-2 px-3 mb-2' checked={completed} onChange={(e) => setCompleted(e.target.checked)}></input>
                 </div>
 
                 <div className='flex justify-center pt-4 mb-4'>

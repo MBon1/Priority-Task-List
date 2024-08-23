@@ -25,7 +25,6 @@ function AddTaskPage({addTaskSubmit}) {
       description,
       active
     };
-    console.log(task);
 
     addTaskSubmit(task);
 

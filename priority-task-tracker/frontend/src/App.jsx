@@ -28,6 +28,19 @@ function App() {
     });
     return;
   };
+
+  // Update Existing Task
+  const updateTask = async(updatedTask) => {
+      const res = await fetch(`http://localhost:8000/api/tasks/${updatedTask.id}/`, { //api/tasks
+      method: 'PUT',
+      body: JSON.stringify(updatedTask),
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
+    });
+    return;
+  };
   
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -37,7 +50,7 @@ function App() {
         <Route path='/completed-tasks' element={<CompletedTasksPage></CompletedTasksPage>}></Route>
         <Route path='*' element={<NotFoundPage></NotFoundPage>}></Route>
 
-        <Route path='/edit-task/:id' element={<EditTaskPage deleteTask={deleteTask}></EditTaskPage>} loader={taskLoader}></Route>
+        <Route path='/edit-task/:id' element={<EditTaskPage deleteTask={deleteTask} updateTaskSubmit={updateTask}></EditTaskPage>} loader={taskLoader}></Route>
       </Route>
     )
   );
