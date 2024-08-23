@@ -1,11 +1,19 @@
 import React from 'react'
-import TaskLists from './Components/TaskLists'
+import {Route, createBrowserRouter, createRoutesFromElements, RouterProvider} from 'react-router-dom'
+import HomePage from './pages/HomePage';
+import MainLayout from './layouts/MainLayout';
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path='/' element={<MainLayout></MainLayout>}>
+      <Route index element={<HomePage></HomePage>}></Route>
+    </Route>
+  )
+);
 
 function App() {
   return (
-    <>
-      <TaskLists></TaskLists>
-    </>
+    <RouterProvider router={router}></RouterProvider>
   )
 }
 

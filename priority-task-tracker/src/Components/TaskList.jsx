@@ -4,7 +4,7 @@ import TaskListHeader from './TaskListHeader'
 
 function TaskList({header='TASKS', bg='bg-red-400', tasks=[], date='0000-00-00'}) {
   return (
-    <section className='border-2 border-black mt-5 w-96'>
+    <section className='bg-white border-2 border-black w-96'>
         <TaskListHeader header={header} bg={bg}></TaskListHeader>
         <section>
             {tasks.map((task) => (

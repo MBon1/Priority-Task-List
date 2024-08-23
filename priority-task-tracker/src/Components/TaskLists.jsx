@@ -16,7 +16,7 @@ function TaskLists() {
     }
 
     return (
-        <section className="grid lg:grid-flow-col auto-cols-max gap-5 place-content-center flex flex-wrap">
+        <section className="grid lg:grid-flow-col auto-cols-max gap-5 place-content-center flex flex-wrap pt-10 pb-10">
             {priorityLists.map((list, index) => (
                 <TaskList key={index} header={'Priority ' + (index + 1)} bg={priorityListColors[index]} tasks={list} date={deadlineYMD}></TaskList>
             ))}
