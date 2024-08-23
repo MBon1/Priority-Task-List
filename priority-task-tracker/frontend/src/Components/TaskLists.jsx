@@ -21,8 +21,8 @@ function TaskLists({listCount=3, showActiveTasks=true}) {
     useEffect(() => {
         const fetchTasks = async() => {
             try {
-                //const res = await fetch('http://localhost:8000/api/tasks/');
-                const res = await fetch('api/tasks');
+                const res = await fetch('http://localhost:8000/api/tasks/');
+                //const res = await fetch('/api/tasks');
                 const data = await res.json();
                 setTasks(data);
             } catch (error) {
